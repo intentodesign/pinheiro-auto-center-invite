@@ -509,6 +509,12 @@ input, select, textarea {
 
 .leaf.falling {
   animation: leafFall 2s ease-out forwards;
+  animation-fill-mode: forwards;
+}
+
+.leaf.cleanup {
+  display: none !important;
+  pointer-events: none;
 }
 
 /* Buttons */

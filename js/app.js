@@ -744,6 +744,10 @@ class PinheiroInviteApp {
         const randomOffset = (Math.random() - 0.5) * 60;
         leaf.style.setProperty('--random-offset', randomOffset + 'px');
         
+        // Add unique ID for tracking
+        const leafId = 'leaf-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        leaf.id = leafId;
+        
         document.body.appendChild(leaf);
         
         // Initialize the icon
@@ -751,12 +755,54 @@ class PinheiroInviteApp {
             lucide.createIcons();
         }
         
-        // Remove leaf after animation completes
+        // Remove leaf after animation completes with multiple cleanup methods
         setTimeout(() => {
-            if (leaf.parentNode) {
+            this.cleanupLeaf(leafId);
+        }, 2100); // Slightly longer than animation to ensure completion
+        
+        // Also cleanup when animation ends
+        leaf.addEventListener('animationend', () => {
+            this.cleanupLeaf(leafId);
+        });
+    }
+    
+    cleanupLeaf(leafId) {
+        const leaf = document.getElementById(leafId);
+        if (leaf && leaf.parentNode) {
+            try {
                 leaf.parentNode.removeChild(leaf);
+            } catch (e) {
+                // Fallback: remove using newer method if available
+                if (leaf.remove) {
+                    leaf.remove();
+                }
             }
-        }, 2000);
+        }
+        
+        // Extra cleanup: remove any orphaned leaves that might be stuck
+        this.cleanupOrphanedLeaves();
+    }
+    
+    cleanupOrphanedLeaves() {
+        // Only run cleanup occasionally to avoid performance issues
+        if (Math.random() < 0.1) {
+            const allLeaves = document.querySelectorAll('.leaf');
+            allLeaves.forEach(leaf => {
+                // Remove leaves that have been around for too long (>3 seconds)
+                const leafAge = Date.now() - parseInt(leaf.id.split('-')[1] || 0);
+                if (leafAge > 3000) {
+                    try {
+                        if (leaf.parentNode) {
+                            leaf.parentNode.removeChild(leaf);
+                        } else if (leaf.remove) {
+                            leaf.remove();
+                        }
+                    } catch (e) {
+                        // Ignore errors during cleanup
+                    }
+                }
+            });
+        }
     }
 }
 
