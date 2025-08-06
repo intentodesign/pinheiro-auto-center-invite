@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Calendar, Clock, MapPin, Coffee, Beer, Zap } from 'lucide-react';
+import { Calendar, Clock, MapPin, Music, Wine, Car } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -137,11 +137,56 @@ export function MainInvite({ onConfirmPresence, onOpenMaps, onAddToCalendar }: M
           </Card>
         </motion.div>
 
-        {/* Action Buttons */}
+        {/* Event Highlights */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
+          className="mb-8"
+        >
+          <div className="event-highlights">
+            <h4 className="font-bold text-pinheiro-green-dark mb-6 text-center text-lg">
+              O QUE VOCÊ VAI ENCONTRAR:
+            </h4>
+            <div className="highlights-list flex justify-around gap-4 flex-wrap">
+              <div className="highlight-item flex flex-col items-center gap-3 flex-1 min-w-[90px]">
+                <div className="highlight-icon w-[50px] h-[50px] bg-gradient-to-br from-pinheiro-green-medium to-pinheiro-green-dark rounded-full flex items-center justify-center shadow-md relative overflow-hidden animate-gentle-pulse">
+                  <div className="absolute -top-px -left-px -right-px -bottom-px bg-gradient-to-br from-pinheiro-green-medium via-pinheiro-green-dark to-pinheiro-green-medium rounded-full -z-10 animate-slow-rotate"></div>
+                  <Music className="w-5 h-5 text-white z-10" />
+                </div>
+                <span className="font-semibold text-pinheiro-green-dark text-center text-sm leading-tight">
+                  Música ao Vivo
+                </span>
+              </div>
+              
+              <div className="highlight-item flex flex-col items-center gap-3 flex-1 min-w-[90px]">
+                <div className="highlight-icon w-[50px] h-[50px] bg-gradient-to-br from-pinheiro-green-medium to-pinheiro-green-dark rounded-full flex items-center justify-center shadow-md relative overflow-hidden animate-gentle-pulse" style={{animationDelay: '1s'}}>
+                  <div className="absolute -top-px -left-px -right-px -bottom-px bg-gradient-to-br from-pinheiro-green-medium via-pinheiro-green-dark to-pinheiro-green-medium rounded-full -z-10 animate-slow-rotate" style={{animationDelay: '1s'}}></div>
+                  <Wine className="w-5 h-5 text-white z-10" />
+                </div>
+                <span className="font-semibold text-pinheiro-green-dark text-center text-sm leading-tight">
+                  Coquetel
+                </span>
+              </div>
+              
+              <div className="highlight-item flex flex-col items-center gap-3 flex-1 min-w-[90px]">
+                <div className="highlight-icon w-[50px] h-[50px] bg-gradient-to-br from-pinheiro-green-medium to-pinheiro-green-dark rounded-full flex items-center justify-center shadow-md relative overflow-hidden animate-gentle-pulse" style={{animationDelay: '2s'}}>
+                  <div className="absolute -top-px -left-px -right-px -bottom-px bg-gradient-to-br from-pinheiro-green-medium via-pinheiro-green-dark to-pinheiro-green-medium rounded-full -z-10 animate-slow-rotate" style={{animationDelay: '2s'}}></div>
+                  <Car className="w-5 h-5 text-white z-10" />
+                </div>
+                <span className="font-semibold text-pinheiro-green-dark text-center text-sm leading-tight">
+                  Super Carros
+                </span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
           className="space-y-4"
         >
           <Button
