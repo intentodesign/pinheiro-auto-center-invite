@@ -144,6 +144,26 @@ export function SuccessScreen({ onOpenMaps, onAddToCalendar }: SuccessScreenProp
             Estamos ansiosos para celebrar com você!
           </p>
         </motion.div>
+
+        {/* Project Credit */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.3 }}
+          className="project-credit mt-12 text-center p-4"
+        >
+          <p className="text-xs text-white/30 m-0 font-normal">
+            Projeto criado por{' '}
+            <a 
+              href="https://instagram.com/ocaradaintento" 
+              target="_blank" 
+              rel="noopener"
+              className="text-pinheiro-green-medium/40 no-underline hover:opacity-70 hover:underline transition-opacity duration-300"
+            >
+              @ocaradaintento
+            </a>
+          </p>
+        </motion.div>
       </div>
     </div>
   );
