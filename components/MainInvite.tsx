@@ -68,11 +68,37 @@ export function MainInvite({ onConfirmPresence, onOpenMaps, onAddToCalendar }: M
           </p>
         </motion.div>
 
-        {/* Event Info Card */}
+        {/* Personal Message */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
+          className="mb-8"
+        >
+          <div className="personal-message">
+            <div className="message-card relative overflow-hidden bg-gradient-to-br from-pinheiro-white/95 to-white/95 p-8 rounded-xl shadow-lg">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-pinheiro-green-medium to-pinheiro-green-dark"></div>
+              <p className="font-dancing text-xl font-semibold text-pinheiro-black leading-relaxed text-center mb-4">
+                Depois de meses preparando cada detalhe, chegou a hora de abrir as portas da nova Pinheiro Auto Center.
+              </p>
+              <p className="font-dancing text-xl font-bold text-pinheiro-green-dark text-center mt-3 mb-3 text-shadow">
+                A estrutura mudou. O compromisso com você, não.
+              </p>
+              <p className="font-dancing text-xl font-semibold text-pinheiro-black leading-relaxed text-center mb-4">
+                Queremos te receber pessoalmente para mostrar o que evoluímos — e por que isso é bom para você e seu carro.
+              </p>
+              <p className="font-dancing text-xl font-bold text-pinheiro-green-medium text-center mt-6">
+                Te esperamos no dia 19/08 pra viver esse novo capítulo com a gente. ✨
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Event Info Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
         >
           <Card className="p-6 mb-8 border-2 border-pinheiro-green-medium shadow-lg">
             <div className="space-y-4">
@@ -109,29 +135,6 @@ export function MainInvite({ onConfirmPresence, onOpenMaps, onAddToCalendar }: M
               </div>
             </div>
           </Card>
-        </motion.div>
-
-        {/* Personal Message */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="mb-8"
-        >
-          <div className="bg-white p-6 rounded-lg border-2 border-pinheiro-green-medium/30 shadow-sm">
-            <p className="text-pinheiro-black text-base leading-relaxed text-center">
-              Depois de meses preparando cada detalhe, chegou a hora de abrir as portas da nova Pinheiro Auto Center.
-            </p>
-            <p className="text-pinheiro-green-dark font-semibold text-center mt-3 mb-3">
-              A estrutura mudou. O compromisso com você, não.
-            </p>
-            <p className="text-pinheiro-black text-base leading-relaxed text-center">
-              Queremos te receber pessoalmente para mostrar o que evoluímos — e por que isso é bom para você e seu carro.
-            </p>
-            <p className="text-pinheiro-green-dark font-medium text-center mt-4 italic">
-              Te esperamos no dia 19/08 pra viver esse novo capítulo com a gente.
-            </p>
-          </div>
         </motion.div>
 
         {/* Action Buttons */}

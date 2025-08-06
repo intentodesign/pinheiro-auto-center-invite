@@ -301,18 +301,33 @@ input, select, textarea {
 }
 
 .message-card {
-  background: var(--white);
-  padding: var(--spacing-6);
-  border-radius: var(--radius-lg);
-  border: 2px solid rgba(38, 120, 89, 0.3);
-  box-shadow: var(--shadow-sm);
+  background: linear-gradient(145deg, rgba(245, 247, 246, 0.95), rgba(255, 255, 255, 0.95));
+  padding: var(--spacing-8) var(--spacing-6);
+  border-radius: var(--radius-xl);
+  border: none;
+  box-shadow: 0 8px 32px rgba(38, 120, 89, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.message-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pinheiro-green-medium), var(--pinheiro-green-dark));
 }
 
 .message-card p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.25rem;
+  font-weight: 600;
   color: var(--pinheiro-black);
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: center;
-  margin-bottom: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
 }
 
 .message-card p:last-child {
@@ -321,14 +336,23 @@ input, select, textarea {
 
 .message-highlight {
   color: var(--pinheiro-green-dark);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.35rem;
+  text-shadow: 1px 1px 2px rgba(23, 76, 56, 0.1);
 }
 
 .message-closing {
-  color: var(--pinheiro-green-dark);
-  font-weight: 500;
-  font-style: italic;
-  margin-top: var(--spacing-4) !important;
+  color: var(--pinheiro-green-medium);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: var(--spacing-6) !important;
+  position: relative;
+}
+
+.message-closing::after {
+  content: '✨';
+  margin-left: 0.5rem;
+  font-size: 1rem;
 }
 
 /* Buttons */
