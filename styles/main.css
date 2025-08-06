@@ -295,42 +295,40 @@ input, select, textarea {
   margin-top: var(--spacing-1);
 }
 
-/* Event Details */
-.event-details {
+/* Personal Message */
+.personal-message {
   margin-bottom: var(--spacing-8);
 }
 
-.event-details h3 {
-  font-weight: bold;
-  color: var(--pinheiro-green-dark);
-  margin-bottom: var(--spacing-4);
-  text-align: center;
-}
-
-.details-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-3);
-}
-
-.detail-item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-3);
+.message-card {
   background: var(--white);
-  padding: var(--spacing-3);
+  padding: var(--spacing-6);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(38, 120, 89, 0.2);
+  border: 2px solid rgba(38, 120, 89, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
-.detail-item i {
-  width: 20px;
-  height: 20px;
-  color: var(--pinheiro-green-medium);
-}
-
-.detail-item span {
+.message-card p {
   color: var(--pinheiro-black);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: var(--spacing-3);
+}
+
+.message-card p:last-child {
+  margin-bottom: 0;
+}
+
+.message-highlight {
+  color: var(--pinheiro-green-dark);
+  font-weight: 600;
+}
+
+.message-closing {
+  color: var(--pinheiro-green-dark);
+  font-weight: 500;
+  font-style: italic;
+  margin-top: var(--spacing-4) !important;
 }
 
 /* Buttons */
