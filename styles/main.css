@@ -414,8 +414,9 @@ input, select, textarea {
 .highlight-icon i {
   width: 20px;
   height: 20px;
-  color: white;
+  color: #ffffff !important;
   z-index: 1;
+  stroke: #ffffff;
 }
 
 .highlight-item span {
