@@ -416,7 +416,16 @@ input, select, textarea {
   height: 20px;
   color: #ffffff !important;
   z-index: 1;
-  stroke: #ffffff;
+  stroke: #ffffff !important;
+  fill: #ffffff !important;
+  filter: brightness(0) invert(1);
+}
+
+.highlight-icon svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: #ffffff !important;
+  filter: brightness(0) invert(1);
 }
 
 .highlight-item span {
@@ -470,6 +479,36 @@ input, select, textarea {
 
 .highlight-item:nth-child(3) .highlight-icon::before {
   animation-delay: 2s;
+}
+
+/* Leaf effect */
+.leaf {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 12px;
+  height: 12px;
+  opacity: 0.8;
+  color: var(--pinheiro-green-medium);
+}
+
+@keyframes leafFall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50px) translateX(var(--random-offset, 0px)) rotate(180deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100px) translateX(var(--random-offset, 0px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.leaf.falling {
+  animation: leafFall 2s ease-out forwards;
 }
 
 /* Buttons */

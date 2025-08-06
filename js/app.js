@@ -34,6 +34,7 @@ class PinheiroInviteApp {
         this.startSplashScreen();
         this.monitorConnection();
         this.initializeDebugPanel();
+        this.setupLeafEffect();
     }
 
     // Initialize Lucide icons
@@ -708,6 +709,54 @@ class PinheiroInviteApp {
                 }
             });
         }
+    }
+
+    // Setup leaf falling effect
+    setupLeafEffect() {
+        const body = document.body;
+        
+        // Mouse move effect
+        body.addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.1) { // 10% chance to create leaf
+                this.createLeaf(e.clientX, e.clientY);
+            }
+        });
+
+        // Touch move effect for mobile
+        body.addEventListener('touchmove', (e) => {
+            if (Math.random() < 0.2) { // 20% chance on touch (less frequent touches)
+                const touch = e.touches[0];
+                this.createLeaf(touch.clientX, touch.clientY);
+            }
+        });
+    }
+
+    createLeaf(x, y) {
+        const leaf = document.createElement('i');
+        leaf.setAttribute('data-lucide', 'leaf');
+        leaf.className = 'leaf falling';
+        
+        // Position at cursor/touch point
+        leaf.style.left = x + 'px';
+        leaf.style.top = y + 'px';
+        
+        // Add random variation to fall direction
+        const randomOffset = (Math.random() - 0.5) * 60;
+        leaf.style.setProperty('--random-offset', randomOffset + 'px');
+        
+        document.body.appendChild(leaf);
+        
+        // Initialize the icon
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+        
+        // Remove leaf after animation completes
+        setTimeout(() => {
+            if (leaf.parentNode) {
+                leaf.parentNode.removeChild(leaf);
+            }
+        }, 2000);
     }
 }
 
